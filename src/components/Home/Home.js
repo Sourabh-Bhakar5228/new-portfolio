@@ -177,8 +177,8 @@ function Home() {
           </Row>
         </Container>
       </Container>
-      <Home2 />
       <SkillsOrbit />
+      <Home2 />
     </section>
   );
 }
