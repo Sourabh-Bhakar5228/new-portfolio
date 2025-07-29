@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "react-bootstrap/Card";
 import { ImPointRight } from "react-icons/im";
 
@@ -9,13 +8,13 @@ function AboutCard() {
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
             Hi Everyone, I am <span className="purple">Sourabh Bhakar </span>
-            from <span className="purple"> Gurgoan ,India.</span>
+            from <span className="purple">Gurgaon, India.</span>
+            <br />I am currently working at{" "}
+            <span className="purple">Jaikvik Technology Pvt. Ltd.</span> since
+            October 2024 as a Software Developer.
             <br />
-            I am currently Complete InternShip as a software developer at Code
-            Tech It Solution.
-            <br />
-            I have completed Integrated BSc (NM) in Maths and Mern Stack course
-            Gurgoan.
+            I have completed an Integrated BSc (NM) in Mathematics and a MERN
+            Stack course in Gurgaon.
             <br />
             <br />
             Apart from coding, some other activities that I love to do!
@@ -25,7 +24,7 @@ function AboutCard() {
               <ImPointRight /> Playing Games
             </li>
             <li className="about-activity">
-              <ImPointRight /> Playing Vollyball
+              <ImPointRight /> Playing Volleyball
             </li>
             <li className="about-activity">
               <ImPointRight /> Travelling
@@ -33,7 +32,7 @@ function AboutCard() {
           </ul>
 
           <p style={{ color: "rgb(155 126 172)" }}>
-            "Strive to build things that make a difference!"{" "}
+            "Strive to build things that make a difference!"
           </p>
           <footer className="blockquote-footer">Sourabh Bhakar</footer>
         </blockquote>

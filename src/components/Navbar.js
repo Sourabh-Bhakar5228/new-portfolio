@@ -94,8 +94,8 @@ function NavBar() {
 
             <Nav.Item>
               <Nav.Link
-                href="https://developer-sourabh.vercel.app/#contact"
-                target="_blank"
+                href="/contact"
+                // target="_blank"
                 rel="noreferrer"
               >
                 <ImBlog style={{ marginBottom: "2px" }} /> Contact

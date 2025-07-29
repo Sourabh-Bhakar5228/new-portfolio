@@ -19,38 +19,36 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I fell in love with programming and I have at least learnt
-              something, I think… 🤷‍♂️
+              I fell in love with programming and have been exploring ever
+              since.
               <br />
-              <br />I am fluent in classics like
+              <br />I am skilled in technologies like:
               <i>
                 <b className="purple">
                   {" "}
-                  Html , Css , Bootstrap, TailWind Css , Javascript , React Js ,
-                  Next Js ,Express Js , Mongo Db and Node Js
+                  HTML, CSS, Bootstrap, Tailwind CSS, JavaScript, TypeScript,
+                  React.js, Next.js, Node.js, Express.js, MongoDB, Firebase,
+                  Git, GitLab, AWS, and Linux.
                 </b>
               </i>
               <br />
               <br />
-              My field of Interest's are building new &nbsp;
+              My areas of interest include building &nbsp;
               <i>
-                <b className="purple">Web Technologies and Products </b> and
-                also in areas related to <b className="purple">Blockchain.</b>
+                <b className="purple">web technologies and digital products</b>
               </i>
+              , and I am also exploring opportunities in{" "}
+              <b className="purple">Blockchain</b>.
               <br />
               <br />
-              Whenever possible, I also apply my passion for developing products
-              with <b className="purple">Node.js</b> and
+              Whenever possible, I love to apply my skills in
+              <b className="purple"> backend development</b> with{" "}
+              <b className="purple">Node.js</b> and modern JavaScript libraries
+              & frameworks like{" "}
               <i>
-                <b className="purple">
-                  {" "}
-                  Modern Javascript Library and Frameworks
-                </b>
+                <b className="purple">React.js and Next.js</b>
               </i>
-              &nbsp; like
-              <i>
-                <b className="purple"> React.js and Next.js</b>
-              </i>
+              .
             </p>
           </Col>
           <Col md={4} className="myAvtar">
@@ -59,6 +57,7 @@ function Home2() {
             </Tilt>
           </Col>
         </Row>
+
         <Row>
           <Col md={12} className="home-about-social">
             <h1>FIND ME ON</h1>
@@ -71,17 +70,17 @@ function Home2() {
                   href="https://github.com/Sourabh-Bhakar5228"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
                 >
                   <AiFillGithub />
                 </a>
               </li>
               <li className="social-icons">
                 <a
-                  href="/"
+                  href="https://twitter.com/your-twitter" // <-- Replace with real Twitter if you have
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
                 >
                   <AiOutlineTwitter />
                 </a>
@@ -91,14 +90,14 @@ function Home2() {
                   href="https://www.linkedin.com/in/sourabh-bhakar-b3bb3324b/"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
                 >
                   <FaLinkedinIn />
                 </a>
               </li>
               <li className="social-icons">
                 <a
-                  href="/"
+                  href="https://www.instagram.com/your-instagram" // <-- Replace with real Instagram if you have
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
@@ -113,4 +112,5 @@ function Home2() {
     </Container>
   );
 }
+
 export default Home2;
