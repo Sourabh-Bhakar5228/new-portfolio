@@ -1,6 +1,6 @@
 # Portfolio Website
 
-Welcome to my personal portfolio website! This project showcases my skills, projects, and achievements as a developer. It is designed to give visitors an insight into my professional journey and technical expertise.
+Welcome to my personal portfolio website! This project showcases my skills, projects, and achievements as a developer. It is designed to give visitors insight into my professional journey and technical expertise.
 
 ## 🚀 Features
 
@@ -22,3 +22,4 @@ Check out the live version of my portfolio here:
 
 ## 📂 Folder Structure
 
+check
