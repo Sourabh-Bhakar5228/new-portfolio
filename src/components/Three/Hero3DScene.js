@@ -140,7 +140,7 @@ const Hero3DScene = () => {
         { text: "await developer.deployToProduction({ status: 'SUCCESS' });", col: "#fbbf24" },
         { text: ">> AI Chatbot Legal Assistant: ACTIVE (24/7)", col: "#38bdf8" },
         { text: ">> Database Latency: 1.2ms | Docker: RUNNING", col: "#a78bfa" },
-        { text: ">> Open to International Relocation & Global Roles", col: "#10b981" },
+        { text: ">> Status: Ready to Build High-Scale Systems", col: "#10b981" },
       ];
 
       const visibleCount = Math.floor((time * 1.5) % (lines.length + 3));

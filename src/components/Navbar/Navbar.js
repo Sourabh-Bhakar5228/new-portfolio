@@ -1,7 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
-import { FiDownload } from "react-icons/fi";
+import {
+  FiDownload,
+  FiHome,
+  FiUser,
+  FiBriefcase,
+  FiLayers,
+  FiFileText,
+  FiMail,
+  FiChevronRight,
+  FiGithub,
+  FiLinkedin,
+} from "react-icons/fi";
+
+const logoImg = "/assets/logo.png";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -16,89 +29,148 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile drawer on route change & reset scroll
   useEffect(() => {
     setMobileMenuOpen(false);
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Experience", path: "/experience" },
-    { name: "Projects", path: "/projects" },
-    { name: "Resume", path: "/resume" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", path: "/", icon: <FiHome /> },
+    { name: "About", path: "/about", icon: <FiUser /> },
+    { name: "Experience", path: "/experience", icon: <FiBriefcase /> },
+    { name: "Projects", path: "/projects", icon: <FiLayers /> },
+    { name: "Resume", path: "/resume", icon: <FiFileText /> },
+    { name: "Contact", path: "/contact", icon: <FiMail /> },
   ];
 
   return (
-    <nav className={`custom-navbar ${scrolled ? "scrolled" : ""}`}>
-      <div className="nav-container">
-        {/* Brand Logo */}
-        <Link to="/" className="navbar-brand-custom">
-          <div className="brand-logo-badge">SB</div>
-          <div>
-            <div className="brand-name">Sourabh Bhakar</div>
-            <div style={{ fontSize: "0.75rem", color: "#38bdf8", fontFamily: "var(--font-mono)" }}>
-              Full Stack • AI
+    <>
+      <nav className={`custom-navbar ${scrolled ? "scrolled" : ""}`}>
+        <div className="nav-container">
+          {/* Brand Logo */}
+          <Link
+            to="/"
+            className="navbar-brand-custom"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <img
+              src={logoImg}
+              alt="Sourabh Bhakar Logo"
+              className="brand-logo-badge"
+              style={{
+                objectFit: "cover",
+                padding: 0,
+                border: "1px solid rgba(56, 189, 248, 0.4)",
+                boxShadow: "0 0 15px rgba(56, 189, 248, 0.25)",
+              }}
+            />
+            <div>
+              <div className="brand-name">Sourabh Bhakar</div>
+              <div className="brand-subtitle">
+                Full Stack • AI
+              </div>
+            </div>
+          </Link>
+
+          {/* Desktop Nav Items */}
+          <ul className="nav-menu-desktop">
+            {navLinks.map((item) => {
+              const isActive =
+                item.path === "/"
+                  ? location.pathname === "/"
+                  : location.pathname.startsWith(item.path);
+
+              return (
+                <li key={item.name}>
+                  <Link
+                    to={item.path}
+                    className={`nav-link-item ${isActive ? "active" : ""}`}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              );
+            })}
+            <li>
+              <a
+                href="/sourabh-bhakar.pdf"
+                download="Sourabh_Bhakar_Resume.pdf"
+                className="nav-btn-hire"
+                style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
+              >
+                <FiDownload />
+                <span>Resume</span>
+              </a>
+            </li>
+          </ul>
+
+          {/* Mobile Hamburger Toggle Button */}
+          <button
+            className={`mobile-toggle-btn ${mobileMenuOpen ? "active" : ""}`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <HiX /> : <HiMenuAlt3 />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Backdrop Overlay */}
+      {mobileMenuOpen && (
+        <div
+          className="mobile-nav-backdrop"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* Mobile Slide-down Glass Drawer */}
+      <div className={`mobile-nav-drawer ${mobileMenuOpen ? "open" : ""}`}>
+        <div className="mobile-drawer-header">
+          <div className="mobile-drawer-brand">
+            <img
+              src={logoImg}
+              alt="Sourabh Bhakar Logo"
+              className="brand-logo-badge small"
+              style={{
+                objectFit: "cover",
+                padding: 0,
+                border: "1px solid rgba(56, 189, 248, 0.4)",
+                boxShadow: "0 0 15px rgba(56, 189, 248, 0.25)",
+              }}
+            />
+            <div>
+              <div className="brand-name" style={{ fontSize: "1.1rem" }}>Sourabh Bhakar</div>
+              <div className="brand-subtitle">Full Stack & AI Engineer</div>
             </div>
           </div>
-        </Link>
-
-        {/* Status Beacon on Desktop */}
-        <div className="status-beacon d-none d-xl-flex">
-          <span className="status-dot" />
-          <span>Open to International Relocation & Remote</span>
+          <button
+            className="mobile-drawer-close-btn"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-label="Close menu"
+          >
+            <HiX />
+          </button>
         </div>
 
-        {/* Desktop Nav Items */}
-        <ul className="nav-menu-desktop">
-          {navLinks.map((item) => {
-            const isActive =
-              item.path === "/"
-                ? location.pathname === "/"
-                : location.pathname.startsWith(item.path);
 
-            return (
-              <li key={item.name}>
-                <Link
-                  to={item.path}
-                  className={`nav-link-item ${isActive ? "active" : ""}`}
-                >
-                  {item.name}
-                </Link>
-              </li>
-            );
-          })}
-          <li>
-            <a
-              href="/bhakar-ai.pdf"
-              download="Sourabh_Bhakar_Resume.pdf"
-              className="nav-btn-hire"
-              style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
-            >
-              <FiDownload />
-              <span>Resume</span>
-            </a>
-          </li>
-        </ul>
 
-        {/* Mobile Hamburger Toggle */}
-        <button
-          className="mobile-toggle-btn"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle navigation"
-        >
-          {mobileMenuOpen ? <HiX /> : <HiMenuAlt3 />}
-        </button>
-      </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="mobile-nav-drawer">
-          <div className="status-beacon" style={{ alignSelf: "flex-start", marginBottom: "10px" }}>
-            <span className="status-dot" />
-            <span>Open to Relocation & Remote</span>
-          </div>
+        {/* Menu Navigation Links */}
+        <div className="mobile-nav-list">
           {navLinks.map((item) => {
             const isActive =
               item.path === "/"
@@ -109,25 +181,64 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`nav-link-item ${isActive ? "active" : ""}`}
-                style={{ fontSize: "1.1rem", padding: "8px 0" }}
+                className={`mobile-nav-link ${isActive ? "active" : ""}`}
+                onClick={() => setMobileMenuOpen(false)}
               >
-                {item.name}
+                <div className="mobile-nav-link-content">
+                  <span className="mobile-nav-icon">{item.icon}</span>
+                  <span className="mobile-nav-label">{item.name}</span>
+                </div>
+                <FiChevronRight className="mobile-nav-chevron" />
               </Link>
             );
           })}
+        </div>
+
+        {/* Mobile Drawer Footer Actions */}
+        <div className="mobile-drawer-footer">
           <a
-            href="/bhakar-ai.pdf"
+            href="/sourabh-bhakar.pdf"
             download="Sourabh_Bhakar_Resume.pdf"
             className="btn-neon-primary"
-            style={{ marginTop: "12px", width: "100%" }}
+            style={{ width: "100%", justifyContent: "center", padding: "12px 18px" }}
           >
             <FiDownload />
-            <span>Download Resume</span>
+            <span>Download Resume (PDF)</span>
           </a>
+
+          <div className="mobile-social-row">
+            <a
+              href="https://github.com/Sourabh-Bhakar5228"
+              target="_blank"
+              rel="noreferrer"
+              className="mobile-social-btn"
+              title="GitHub"
+            >
+              <FiGithub />
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/sourabh-bhakar/"
+              target="_blank"
+              rel="noreferrer"
+              className="mobile-social-btn"
+              title="LinkedIn"
+            >
+              <FiLinkedin />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href="mailto:bhakarsoursbh@gmail.com"
+              className="mobile-social-btn"
+              title="Email"
+            >
+              <FiMail />
+              <span>Email</span>
+            </a>
+          </div>
         </div>
-      )}
-    </nav>
+      </div>
+    </>
   );
 };
 

@@ -22,6 +22,7 @@ const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const [copiedLocation, setCopiedLocation] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -55,9 +56,12 @@ const ContactSection = () => {
     if (type === "email") {
       setCopiedEmail(true);
       setTimeout(() => setCopiedEmail(false), 2000);
-    } else {
+    } else if (type === "phone") {
       setCopiedPhone(true);
       setTimeout(() => setCopiedPhone(false), 2000);
+    } else if (type === "location") {
+      setCopiedLocation(true);
+      setTimeout(() => setCopiedLocation(false), 2000);
     }
   };
 
@@ -70,18 +74,29 @@ const ContactSection = () => {
             Let's <span className="text-gradient">Connect</span>
           </h2>
           <p className="section-subtitle">
-            Have an open software engineering role, project, or collaboration? My inbox is always open.
+            Have an open software engineering role, project, or collaboration?
+            My inbox is always open.
           </p>
         </div>
 
         <div className="contact-grid">
           {/* Left: Contact Info */}
           <div className="contact-info-panel">
-            <h3 style={{ fontSize: "1.8rem", fontWeight: "700", marginBottom: "8px" }}>
+            <h3
+              style={{
+                fontSize: "1.8rem",
+                fontWeight: "700",
+                marginBottom: "8px",
+              }}
+            >
               Start a Conversation
             </h3>
-            <p style={{ color: "#94a3b8", fontSize: "1rem", lineHeight: "1.7" }}>
-              I am actively looking for software engineering opportunities (Full Stack, Backend, Frontend, and AI integrations). Feel free to reach out directly via email, phone, or LinkedIn!
+            <p
+              style={{ color: "#94a3b8", fontSize: "1rem", lineHeight: "1.7" }}
+            >
+              I am actively looking for software engineering opportunities (Full
+              Stack, Backend, Frontend, and AI integrations). Feel free to reach
+              out directly via email, phone, or LinkedIn!
             </p>
 
             {/* Email Card */}
@@ -89,25 +104,44 @@ const ContactSection = () => {
               <div className="contact-icon-wrap">
                 <FiMail />
               </div>
-              <div style={{ flexGrow: 1 }}>
-                <div style={{ fontSize: "0.8rem", color: "#94a3b8", fontFamily: "var(--font-mono)" }}>
+              <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <div
+                  style={{
+                    fontSize: "0.8rem",
+                    color: "#94a3b8",
+                    fontFamily: "var(--font-mono)",
+                    lineHeight: "1.2",
+                    marginBottom: "3px",
+                  }}
+                >
                   EMAIL ME
                 </div>
                 <a
                   href="mailto:bhakarsoursbh@gmail.com"
-                  style={{ fontSize: "1.05rem", fontWeight: "600", color: "#ffffff" }}
+                  style={{
+                    fontSize: "1.05rem",
+                    fontWeight: "600",
+                    color: "#ffffff",
+                    lineHeight: "1.3",
+                  }}
                 >
                   bhakarsoursbh@gmail.com
                 </a>
               </div>
               <button
-                onClick={() => copyToClipboard("bhakarsoursbh@gmail.com", "email")}
+                onClick={() =>
+                  copyToClipboard("bhakarsoursbh@gmail.com", "email")
+                }
                 style={{
                   background: "transparent",
                   border: "none",
                   color: copiedEmail ? "#10b981" : "#94a3b8",
                   cursor: "pointer",
                   padding: "8px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
                 }}
                 title="Copy Email"
               >
@@ -120,13 +154,26 @@ const ContactSection = () => {
               <div className="contact-icon-wrap">
                 <FiPhone />
               </div>
-              <div style={{ flexGrow: 1 }}>
-                <div style={{ fontSize: "0.8rem", color: "#94a3b8", fontFamily: "var(--font-mono)" }}>
+              <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <div
+                  style={{
+                    fontSize: "0.8rem",
+                    color: "#94a3b8",
+                    fontFamily: "var(--font-mono)",
+                    lineHeight: "1.2",
+                    marginBottom: "3px",
+                  }}
+                >
                   CALL / WHATSAPP
                 </div>
                 <a
                   href="tel:+918307802850"
-                  style={{ fontSize: "1.05rem", fontWeight: "600", color: "#ffffff" }}
+                  style={{
+                    fontSize: "1.05rem",
+                    fontWeight: "600",
+                    color: "#ffffff",
+                    lineHeight: "1.3",
+                  }}
                 >
                   +91 8307802850
                 </a>
@@ -139,6 +186,10 @@ const ContactSection = () => {
                   color: copiedPhone ? "#10b981" : "#94a3b8",
                   cursor: "pointer",
                   padding: "8px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
                 }}
                 title="Copy Phone"
               >
@@ -151,20 +202,61 @@ const ContactSection = () => {
               <div className="contact-icon-wrap">
                 <FiMapPin />
               </div>
-              <div>
-                <div style={{ fontSize: "0.8rem", color: "#94a3b8", fontFamily: "var(--font-mono)" }}>
+              <div style={{ flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <div
+                  style={{
+                    fontSize: "0.8rem",
+                    color: "#94a3b8",
+                    fontFamily: "var(--font-mono)",
+                    lineHeight: "1.2",
+                    marginBottom: "3px",
+                  }}
+                >
                   LOCATION
                 </div>
-                <div style={{ fontSize: "1.05rem", fontWeight: "600", color: "#ffffff" }}>
-                  Gurugram, Haryana, India (Open to International Relocation)
+                <div
+                  style={{
+                    fontSize: "1.05rem",
+                    fontWeight: "600",
+                    color: "#ffffff",
+                    lineHeight: "1.3",
+                  }}
+                >
+                  Gurugram, Haryana, India
                 </div>
               </div>
+              <button
+                onClick={() =>
+                  copyToClipboard("Gurugram, Haryana, India", "location")
+                }
+                style={{
+                  background: "transparent",
+                  border: "none",
+                  color: copiedLocation ? "#10b981" : "#94a3b8",
+                  cursor: "pointer",
+                  padding: "8px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+                title="Copy Location"
+              >
+                {copiedLocation ? <FiCheck size={18} /> : <FiCopy size={18} />}
+              </button>
             </div>
 
             {/* Resume Download and Social Links */}
-            <div style={{ display: "flex", gap: "14px", flexWrap: "wrap", marginTop: "10px" }}>
+            <div
+              style={{
+                display: "flex",
+                gap: "14px",
+                flexWrap: "wrap",
+                marginTop: "10px",
+              }}
+            >
               <a
-                href="/bhakar-ai.pdf"
+                href="/sourabh-bhakar.pdf"
                 download="Sourabh_Bhakar_Resume.pdf"
                 className="btn-neon-primary"
                 style={{ flex: 1 }}
@@ -197,7 +289,13 @@ const ContactSection = () => {
 
           {/* Right: Message Form */}
           <div className="glass-panel" style={{ padding: "36px" }}>
-            <h3 style={{ fontSize: "1.4rem", fontWeight: "700", marginBottom: "20px" }}>
+            <h3
+              style={{
+                fontSize: "1.4rem",
+                fontWeight: "700",
+                marginBottom: "20px",
+              }}
+            >
               Send a Direct Message
             </h3>
 
@@ -227,15 +325,25 @@ const ContactSection = () => {
                 >
                   <FiCheck />
                 </div>
-                <h4 style={{ color: "#ffffff", marginBottom: "8px" }}>Message Sent Successfully!</h4>
+                <h4 style={{ color: "#ffffff", marginBottom: "8px" }}>
+                  Message Sent Successfully!
+                </h4>
                 <p style={{ color: "#cbd5e1", fontSize: "0.92rem", margin: 0 }}>
-                  Thank you for reaching out, {formData.name || "friend"}. I will respond to your inquiry promptly!
+                  Thank you for reaching out, {formData.name || "friend"}. I
+                  will respond to your inquiry promptly!
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
                 <div>
-                  <label style={{ fontSize: "0.85rem", color: "#cbd5e1", marginBottom: "6px", display: "block" }}>
+                  <label
+                    style={{
+                      fontSize: "0.85rem",
+                      color: "#cbd5e1",
+                      marginBottom: "6px",
+                      display: "block",
+                    }}
+                  >
                     Your Name *
                   </label>
                   <input
@@ -250,7 +358,14 @@ const ContactSection = () => {
                 </div>
 
                 <div>
-                  <label style={{ fontSize: "0.85rem", color: "#cbd5e1", marginBottom: "6px", display: "block" }}>
+                  <label
+                    style={{
+                      fontSize: "0.85rem",
+                      color: "#cbd5e1",
+                      marginBottom: "6px",
+                      display: "block",
+                    }}
+                  >
                     Your Email *
                   </label>
                   <input
@@ -265,7 +380,14 @@ const ContactSection = () => {
                 </div>
 
                 <div>
-                  <label style={{ fontSize: "0.85rem", color: "#cbd5e1", marginBottom: "6px", display: "block" }}>
+                  <label
+                    style={{
+                      fontSize: "0.85rem",
+                      color: "#cbd5e1",
+                      marginBottom: "6px",
+                      display: "block",
+                    }}
+                  >
                     Subject
                   </label>
                   <input
@@ -279,7 +401,14 @@ const ContactSection = () => {
                 </div>
 
                 <div>
-                  <label style={{ fontSize: "0.85rem", color: "#cbd5e1", marginBottom: "6px", display: "block" }}>
+                  <label
+                    style={{
+                      fontSize: "0.85rem",
+                      color: "#cbd5e1",
+                      marginBottom: "6px",
+                      display: "block",
+                    }}
+                  >
                     Message *
                   </label>
                   <textarea

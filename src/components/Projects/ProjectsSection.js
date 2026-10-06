@@ -1,11 +1,31 @@
 import React, { useState } from "react";
 import { FiExternalLink, FiGithub, FiCheck } from "react-icons/fi";
-import chatImg from "../../Assets/Projects/chatify.png";
-import codeImg from "../../Assets/Projects/codeEditor.png";
-import blogImg from "../../Assets/Projects/blog.png";
-import leafImg from "../../Assets/Projects/leaf.png";
+
+// High-speed static public assets
+const goluImg = "/assets/projects/goluAi.png";
+const chatImg = "/assets/projects/lots247.jpg";
+const blogImg = "/assets/projects/hyglam.jpg";
+const codeImg = "/assets/projects/codeEditor.png";
+const leafImg = "/assets/projects/leaf.png";
 
 const projects = [
+  {
+    title: "Golu AI — AI Interviewer & Simulator",
+    category: "ai",
+    badge: "Flagship AI • 2026",
+    image: goluImg,
+    description:
+      "AI-powered web-based interview platform that conducts personalized, adaptive, face-to-face mock interviews using candidate resumes, job descriptions, interview details, and verified company information.",
+    tech: ["Next.js", "TypeScript", "NestJS", "MongoDB Atlas", "Redis", "BullMQ", "WebRTC", "Tailwind CSS"],
+    liveLink: "https://github.com/Sourabh-Bhakar5228",
+    githubLink: "https://github.com/Sourabh-Bhakar5228",
+    highlights: [
+      "Adaptive state machine changing difficulty dynamically vs static questions",
+      "Face-to-face video & voice interview with Golu avatar, STT, and TTS",
+      "Live coding round with test execution, complexity & quality evaluation",
+      "Simulates production incidents (API failures, db latency, caching issues)",
+    ],
+  },
   {
     title: "AI Legal Chatbot — Lots247",
     category: "ai",

@@ -1,6 +1,8 @@
 import React from "react";
 import { FiGithub, FiLinkedin, FiMail, FiArrowUp } from "react-icons/fi";
 
+const logoImg = "/assets/logo.png";
+
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -11,13 +13,22 @@ const Footer = () => {
       <div className="footer-content">
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "6px" }}>
-            <div className="brand-logo-badge" style={{ width: "32px", height: "32px", fontSize: "0.9rem" }}>
-              SB
-            </div>
+            <img
+              src={logoImg}
+              alt="Sourabh Bhakar Logo"
+              className="brand-logo-badge"
+              style={{
+                width: "34px",
+                height: "34px",
+                objectFit: "cover",
+                padding: 0,
+                border: "1px solid rgba(56, 189, 248, 0.4)",
+              }}
+            />
             <strong style={{ color: "#ffffff", fontSize: "1.1rem" }}>Sourabh Bhakar</strong>
           </div>
           <div style={{ fontSize: "0.85rem", color: "#94a3b8" }}>
-            Full Stack Developer • AI Solutions • Open to International Relocation
+            Full Stack Developer • AI Solutions
           </div>
         </div>
 

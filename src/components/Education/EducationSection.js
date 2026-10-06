@@ -8,7 +8,7 @@ const EducationSection = () => {
         <div style={{ textAlign: "center", marginBottom: "50px" }}>
           <div className="section-tag">Credentials & Global Reach</div>
           <h2 className="section-title">
-            Education & <span className="text-gradient">Relocation</span>
+            Education & <span className="text-gradient">Certifications</span>
           </h2>
           <p className="section-subtitle">
             Solid foundations in computer science and full-stack software development, combined with an international mindset.
@@ -115,10 +115,10 @@ const EducationSection = () => {
               GLOBAL CAREER
             </div>
             <h3 style={{ fontSize: "1.35rem", fontWeight: "700", marginBottom: "8px" }}>
-              International Mobility
+              Global Opportunities
             </h3>
             <div style={{ color: "#94a3b8", fontSize: "1rem", marginBottom: "14px", fontWeight: "500" }}>
-              Open to Relocation & Remote
+              Available for Full-Time & Remote Roles
             </div>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "8px" }}>
               <li style={{ display: "flex", alignItems: "center", gap: "8px", color: "#cbd5e1", fontSize: "0.88rem" }}>

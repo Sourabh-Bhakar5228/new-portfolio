@@ -205,7 +205,7 @@ const skillsData = [
     name: "AI Chatbots & LLMs",
     category: "ai",
     level: "Production Implemented",
-    desc: "Built Lots247 legal chatbot, context management, prompt engineering, and API integration.",
+    desc: "Built Golu AI adaptive interview simulator & Lots247 legal chatbot, context management, and LLM integrations.",
     icon: <FaRobot />,
     progress: 90,
   },

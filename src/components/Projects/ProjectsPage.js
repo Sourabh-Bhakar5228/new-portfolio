@@ -1,3 +1,4 @@
+// Projects Page - Flagship & Repositories
 import React, { useState, useEffect } from "react";
 import {
   FiGithub,
@@ -8,11 +9,29 @@ import {
   FiCode,
   FiLayers,
 } from "react-icons/fi";
-import chatImg from "../../Assets/Projects/chatify.png";
-import blogImg from "../../Assets/Projects/blog.png";
+import GoluAiSpotlight from "./GoluAiSpotlight";
+import SEO from "../UI/SEO";
+
+// High-speed static public assets (browser cached)
+const goluImg = "/assets/projects/goluAi.png";
+const chatImg = "/assets/projects/lots247.jpg";
+const blogImg = "/assets/projects/hyglam.jpg";
 
 // Flagship Featured Production Projects from Resume
 const flagshipProjects = [
+  {
+    name: "Golu AI — AI Interviewer & Company Interview Simulator",
+    description:
+      "AI-powered web-based interview platform conducting personalized, adaptive, face-to-face mock interviews with candidate resume context, JD matching, live code execution, and verified company signals.",
+    language: "Next.js / NestJS",
+    stars: 28,
+    forks: 9,
+    html_url: "https://github.com/Sourabh-Bhakar5228",
+    homepage: "https://github.com/Sourabh-Bhakar5228",
+    isFlagship: true,
+    image: goluImg,
+    tech: ["Next.js", "TypeScript", "NestJS", "MongoDB Atlas", "Redis", "BullMQ", "WebRTC", "Tailwind CSS"],
+  },
   {
     name: "AI Legal Chatbot — Lots247",
     description:
@@ -43,6 +62,16 @@ const flagshipProjects = [
 
 // Fallback Repositories if GitHub API rate limits
 const fallbackRepos = [
+  {
+    id: 0,
+    name: "Golu-AI-Interview-Simulator",
+    description: "Adaptive AI interviewer & company interview simulator with WebRTC face-to-face voice, live coding round, Redis state machine, and BullMQ.",
+    language: "TypeScript",
+    stargazers_count: 24,
+    forks_count: 7,
+    html_url: "https://github.com/Sourabh-Bhakar5228",
+    homepage: "https://github.com/Sourabh-Bhakar5228",
+  },
   {
     id: 1,
     name: "AI-Legal-Chatbot-Lots247",
@@ -160,8 +189,14 @@ const ProjectsPage = () => {
   ];
 
   return (
-    <div style={{ paddingTop: "120px", paddingBottom: "80px", minHeight: "100vh" }}>
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
+    <div style={{ paddingTop: "110px", paddingBottom: "70px", minHeight: "100vh" }}>
+      <SEO
+        title="Projects Portfolio | Sourabh Bhakar — Golu AI, Lots247 & HyGlam"
+        description="Explore production web applications and AI platforms built by Sourabh Bhakar: Golu AI Interviewer, Lots247 AI Legal Chatbot, HyGlam, and live GitHub repositories."
+        keywords="Sourabh Bhakar Projects, Golu AI, AI Interviewer, Lots247 Chatbot, HyGlam, GitHub Repositories, Full Stack Projects, WebRTC, Next.js, NestJS"
+        path="/projects"
+      />
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 16px" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "40px" }}>
           <div className="section-tag">GitHub & Production Portfolio</div>
@@ -172,6 +207,9 @@ const ProjectsPage = () => {
             Live production platforms, client products, and real-time public repositories fetched directly from GitHub.
           </p>
         </div>
+
+        {/* Spotlight: Golu AI — Best Project & Flagship AI Interviewer */}
+        <GoluAiSpotlight />
 
         {/* Part 1: Flagship Featured Production Projects */}
         <div style={{ marginBottom: "60px" }}>
@@ -192,8 +230,8 @@ const ProjectsPage = () => {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
-              gap: "28px",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "24px",
             }}
           >
             {flagshipProjects.map((proj, idx) => (
@@ -355,8 +393,8 @@ const ProjectsPage = () => {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))",
-                gap: "22px",
+                gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+                gap: "20px",
               }}
             >
               {filteredRepos.map((repo) => (

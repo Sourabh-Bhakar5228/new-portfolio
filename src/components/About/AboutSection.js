@@ -1,7 +1,8 @@
 import React from "react";
 import Tilt from "react-parallax-tilt";
-import { FiMapPin, FiBriefcase, FiGlobe, FiCheckCircle } from "react-icons/fi";
-import myPhoto from "../../Assets/sourabh.jpg";
+import { FiMapPin, FiBriefcase, FiCheckCircle } from "react-icons/fi";
+
+const myPhoto = "/assets/sourabh.jpg";
 
 const AboutSection = () => {
   const stats = [
@@ -13,7 +14,7 @@ const AboutSection = () => {
 
   const highlights = [
     "Full-stack MERN & Next.js production web applications & admin dashboards",
-    "Developed & integrated AI Legal Chatbot in Lots247 dashboard",
+    "Architected Golu AI (Adaptive Interview Simulator) & Lots247 AI Legal Chatbot",
     "Robust REST APIs & backend services using NestJS, Node.js & FastAPI",
     "Authentication, RBAC (Role-Based Access Control) & data protection",
     "Dockerized container development, CI/CD pipelines & cloud deployment",
@@ -112,22 +113,6 @@ const AboutSection = () => {
                     }}
                   >
                     <FiBriefcase color="#a855f7" /> 2+ Years Exp.
-                  </span>
-
-                  <span
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "6px",
-                      fontSize: "0.82rem",
-                      color: "#34d399",
-                      background: "rgba(16, 185, 129, 0.1)",
-                      border: "1px solid rgba(16, 185, 129, 0.25)",
-                      padding: "5px 10px",
-                      borderRadius: "8px",
-                    }}
-                  >
-                    <FiGlobe color="#10b981" /> Open to Relocation
                   </span>
                 </div>
               </div>
