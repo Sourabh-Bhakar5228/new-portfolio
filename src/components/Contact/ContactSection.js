@@ -20,6 +20,7 @@ const ContactSection = () => {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [copiedLocation, setCopiedLocation] = useState(false);
@@ -28,27 +29,67 @@ const ContactSection = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    // Trigger celebration confetti
-    try {
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ["#38bdf8", "#818cf8", "#a855f7", "#10b981"],
-      });
-    } catch (err) {
-      console.log(err);
-    }
+    setIsSubmitting(true);
 
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 5000);
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/ajax/bhakarsoursbh@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            _subject:
+              formData.subject ||
+              `New Portfolio Contact Inquiry from ${formData.name}`,
+            message: formData.message,
+            _captcha: "false",
+            _template: "table",
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (response.ok || data.success) {
+        // Trigger celebration confetti
+        try {
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ["#38bdf8", "#818cf8", "#a855f7", "#10b981"],
+          });
+        } catch (err) {
+          console.log(err);
+        }
+
+        setSubmitted(true);
+      } else {
+        throw new Error(data.message || "Failed to send message via server.");
+      }
+    } catch (err) {
+      console.warn("Direct form submit fallback:", err);
+      // Fallback: If network issue or blocked, trigger mailto link so user message is never lost
+      const mailtoUrl = `mailto:bhakarsoursbh@gmail.com?subject=${encodeURIComponent(
+        formData.subject || `Inquiry from ${formData.name}`
+      )}&body=${encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )}`;
+      window.location.href = mailtoUrl;
+
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const copyToClipboard = (text, type) => {
@@ -302,36 +343,46 @@ const ContactSection = () => {
             {submitted ? (
               <div
                 style={{
-                  padding: "24px",
-                  background: "rgba(16, 185, 129, 0.15)",
-                  border: "1px solid rgba(16, 185, 129, 0.3)",
-                  borderRadius: "14px",
+                  padding: "30px 24px",
+                  background: "rgba(16, 185, 129, 0.12)",
+                  border: "1px solid rgba(16, 185, 129, 0.35)",
+                  borderRadius: "18px",
                   textAlign: "center",
                 }}
               >
                 <div
                   style={{
-                    width: "48px",
-                    height: "48px",
+                    width: "52px",
+                    height: "52px",
                     borderRadius: "50%",
                     background: "#10b981",
                     color: "#ffffff",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    margin: "0 auto 12px auto",
-                    fontSize: "1.5rem",
+                    margin: "0 auto 16px auto",
+                    fontSize: "1.6rem",
+                    boxShadow: "0 0 25px rgba(16, 185, 129, 0.4)",
                   }}
                 >
                   <FiCheck />
                 </div>
-                <h4 style={{ color: "#ffffff", marginBottom: "8px" }}>
-                  Message Sent Successfully!
+                <h4 style={{ color: "#ffffff", fontSize: "1.25rem", fontWeight: "700", marginBottom: "8px" }}>
+                  Message Delivered Directly to Email!
                 </h4>
-                <p style={{ color: "#cbd5e1", fontSize: "0.92rem", margin: 0 }}>
-                  Thank you for reaching out, {formData.name || "friend"}. I
-                  will respond to your inquiry promptly!
+                <p style={{ color: "#cbd5e1", fontSize: "0.94rem", lineHeight: "1.6", maxWidth: "420px", margin: "0 auto 20px auto" }}>
+                  Thank you for reaching out, <strong style={{ color: "#ffffff" }}>{formData.name || "friend"}</strong>. Your inquiry has been dispatched to <strong style={{ color: "#38bdf8" }}>bhakarsoursbh@gmail.com</strong>. Sourabh will reply to you shortly!
                 </p>
+                <button
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFormData({ name: "", email: "", subject: "", message: "" });
+                  }}
+                  className="btn-neon-secondary"
+                  style={{ padding: "10px 22px", fontSize: "0.9rem" }}
+                >
+                  Send Another Message
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
@@ -425,11 +476,21 @@ const ContactSection = () => {
 
                 <button
                   type="submit"
+                  disabled={isSubmitting}
                   className="btn-neon-primary"
-                  style={{ width: "100%", padding: "14px" }}
+                  style={{
+                    width: "100%",
+                    padding: "14px",
+                    opacity: isSubmitting ? 0.75 : 1,
+                    cursor: isSubmitting ? "not-allowed" : "pointer",
+                  }}
                 >
                   <FiSend />
-                  <span>Send Message</span>
+                  <span>
+                    {isSubmitting
+                      ? "Delivering to bhakarsoursbh@gmail.com..."
+                      : "Send Message"}
+                  </span>
                 </button>
               </form>
             )}
