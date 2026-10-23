@@ -297,7 +297,7 @@ const ContactSection = () => {
               }}
             >
               <a
-                href="/sourabh-bhakar.pdf"
+                href="/sourabh-bhakar-updated.pdf"
                 download="Sourabh_Bhakar_Resume.pdf"
                 className="btn-neon-primary"
                 style={{ flex: 1 }}

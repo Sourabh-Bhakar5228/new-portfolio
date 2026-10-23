@@ -17,7 +17,7 @@ import {
 } from "react-icons/fi";
 import SEO from "../UI/SEO";
 
-const pdfFile = "/assets/sourabh-bhakar.pdf";
+const pdfFile = "/sourabh-bhakar-updated.pdf";
 
 function ResumeNew() {
   const [activeTab, setActiveTab] = useState("preview");
@@ -67,12 +67,16 @@ function ResumeNew() {
             <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
               <FiMail color="#a855f7" /> bhakarsoursbh@gmail.com
             </span>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "#10b981", fontWeight: "600" }}>
+              <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#10b981", boxShadow: "0 0 8px #10b981" }} />
+              Immediately Available (0-day notice)
+            </span>
           </div>
 
           {/* Action Buttons */}
           <div style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
             <a
-              href="/sourabh-bhakar.pdf"
+              href="/sourabh-bhakar-updated.pdf"
               download="Sourabh_Bhakar_Resume.pdf"
               className="btn-neon-primary"
             >
@@ -209,8 +213,13 @@ function ResumeNew() {
                       Lawyered, Gurugram
                     </div>
                   </div>
-                  <div style={{ fontFamily: "var(--font-mono)", color: "#94a3b8", fontSize: "0.88rem" }}>
-                    Jan 2026 – Present
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                    <span style={{ fontFamily: "var(--font-mono)", color: "#94a3b8", fontSize: "0.88rem" }}>
+                      Jan 2026 – Oct 2026
+                    </span>
+                    <span style={{ padding: "2px 7px", background: "rgba(56, 189, 248, 0.15)", border: "1px solid rgba(56, 189, 248, 0.3)", borderRadius: "4px", color: "#38bdf8", fontSize: "0.72rem", fontWeight: "600" }}>
+                      Completed
+                    </span>
                   </div>
                 </div>
                 <ul className="timeline-bullets" style={{ marginTop: "14px" }}>
@@ -287,7 +296,7 @@ function ResumeNew() {
                     AI Legal Chatbot — Lots247
                   </h4>
                   <span style={{ fontFamily: "var(--font-mono)", color: "#94a3b8", fontSize: "0.85rem" }}>
-                    2026 – Present
+                    Aug 2026
                   </span>
                 </div>
                 <div style={{ color: "#38bdf8", fontSize: "0.85rem", fontFamily: "var(--font-mono)", margin: "4px 0 10px 0" }}>
@@ -310,7 +319,7 @@ function ResumeNew() {
                     HyGlam — Beauty Services Platform
                   </h4>
                   <span style={{ fontFamily: "var(--font-mono)", color: "#94a3b8", fontSize: "0.85rem" }}>
-                    2025 – Present • Live: hyglamofficial.com
+                    2026 • Live: hyglamofficial.com
                   </span>
                 </div>
                 <div style={{ color: "#38bdf8", fontSize: "0.85rem", fontFamily: "var(--font-mono)", margin: "4px 0 10px 0" }}>
@@ -354,11 +363,11 @@ function ResumeNew() {
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px" }}>
                   <FiGlobe color="#38bdf8" size={20} />
                   <h3 style={{ fontSize: "1.15rem", fontWeight: "700", color: "#ffffff", margin: 0 }}>
-                    GLOBAL AVAILABILITY & MOBILITY
+                    IMMEDIATE AVAILABILITY & GLOBAL MOBILITY
                   </h3>
                 </div>
                 <p style={{ color: "#cbd5e1", fontSize: "0.88rem", lineHeight: "1.65", margin: 0 }}>
-                  Based in Gurugram, India and actively open to relocation for full-time international software engineering roles. Interested in Germany, Europe, and global engineering hubs. Available for on-site, hybrid, or remote positions with visa sponsorship.
+                  <strong style={{ color: "#10b981" }}>Immediately available for hire (0-day notice period).</strong> Based in Gurugram, India and actively open to relocation for full-time international or domestic software engineering roles. Interested in Germany, Europe, and global engineering hubs. Available for on-site, hybrid, or remote positions with visa sponsorship.
                 </p>
               </div>
             </div>
@@ -367,7 +376,7 @@ function ResumeNew() {
           /* Tab 2: Embedded Iframe PDF Viewer */
           <div className="glass-panel" style={{ padding: "16px", borderRadius: "16px" }}>
             <iframe
-              src="/sourabh-bhakar.pdf"
+              src="/sourabh-bhakar-updated.pdf"
               title="Sourabh Bhakar Resume PDF"
               width="100%"
               height="950px"
@@ -379,7 +388,7 @@ function ResumeNew() {
         {/* Bottom CTA */}
         <div style={{ textAlign: "center", marginTop: "40px" }}>
           <a
-            href="/sourabh-bhakar.pdf"
+            href="/sourabh-bhakar-updated.pdf"
             download="Sourabh_Bhakar_Resume.pdf"
             className="btn-neon-primary"
           >

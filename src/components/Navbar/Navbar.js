@@ -106,7 +106,7 @@ const Navbar = () => {
             })}
             <li>
               <a
-                href="/sourabh-bhakar.pdf"
+                href="/sourabh-bhakar-updated.pdf"
                 download="Sourabh_Bhakar_Resume.pdf"
                 className="nav-btn-hire"
                 style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}
@@ -197,7 +197,7 @@ const Navbar = () => {
         {/* Mobile Drawer Footer Actions */}
         <div className="mobile-drawer-footer">
           <a
-            href="/sourabh-bhakar.pdf"
+            href="/sourabh-bhakar-updated.pdf"
             download="Sourabh_Bhakar_Resume.pdf"
             className="btn-neon-primary"
             style={{ width: "100%", justifyContent: "center", padding: "12px 18px" }}

@@ -6,18 +6,16 @@ const experiences = [
     role: "MERN Stack Developer",
     company: "Lawyered",
     location: "Gurugram, Haryana, India",
-    period: "Jan 2026 – Present",
-    type: "Full-time • Current",
+    period: "Jan 2026 – Oct 2026",
+    type: "Full-time",
     tagline: "High-scale Legal Tech Platform & Lots247 AI Integration",
     responsibilities: [
-      "Develop and maintain production web applications and admin dashboards using React.js, Next.js, TypeScript, Node.js, Express.js, NestJS, MongoDB, MySQL, and PostgreSQL.",
-      "Developed and integrated an AI-powered legal chatbot into the Lots247 dashboard, reducing manual legal query handling by 40% and improving the product experience.",
-      "Designed and developed backend REST APIs using NestJS and Node.js, implementing application business logic and integrating APIs with frontend modules, cutting API response time by 25%.",
-      "Worked extensively on product UI/UX, designing and implementing 15+ new interfaces, layouts, reusable components, and UI improvements across web applications and dashboards.",
-      "Developed and enhanced dashboard features, data flows, authentication modules, and role-based access control (RBAC) functionality, improving access security and reducing unauthorized access incidents to zero.",
-      "Identified and resolved 50+ frontend and backend bugs, debugging application issues and improving overall product stability, reliability, and user experience by 30%.",
-      "Integrated third-party services and APIs while maintaining scalable and maintainable application architecture, reducing integration time by 20%.",
-      "Used Docker for application and development environments and collaborated with cross-functional teams to deliver features, UI updates, and product improvements.",
+      "Developed an AI-powered legal chatbot for the Lots247 dashboard, reducing manual legal query handling by 40%.",
+      "Designed backend REST APIs with NestJS and Node.js and integrated them with frontend modules, cutting API response time by 25%.",
+      "Designed and built 15+ new interfaces, layouts, and reusable components across web apps and dashboards.",
+      "Built dashboard features, authentication modules, and RBAC, reducing unauthorized access incidents to zero.",
+      "Resolved 50+ frontend and backend bugs, improving product stability and user experience by 30%.",
+      "Integrated third-party APIs on a scalable architecture, reducing integration time by 20%; used Docker for environments.",
     ],
     tech: ["React.js", "Next.js", "TypeScript", "Node.js", "NestJS", "AI/LLM Chatbot", "PostgreSQL", "MongoDB", "Docker", "RBAC"],
   },
@@ -29,12 +27,11 @@ const experiences = [
     type: "Full-time",
     tagline: "Enterprise Web Applications & Modular Frontend Systems",
     responsibilities: [
-      "Developed scalable web applications using the MERN stack and Next.js with TypeScript and modern UI libraries, improving page load speed by 35%.",
-      "Built responsive dashboards and web interfaces with secure authentication and third-party API integrations, serving 2,000+ concurrent users.",
-      "Developed and integrated REST APIs and implemented frontend-backend data flows for application features, reducing data fetch latency by 30%.",
-      "Improved application performance by refactoring code and adopting reusable components and modular architecture, decreasing code duplication by 40%.",
-      "Debugged and resolved 40+ application issues across frontend and backend, improving reliability and maintainability.",
-      "Collaborated with cross-functional teams in an Agile environment to deliver new features and product enhancements, shipping 20+ features on schedule.",
+      "Built scalable web applications with the MERN stack, Next.js, and TypeScript, improving page load speed by 35%.",
+      "Developed responsive dashboards with secure authentication and third-party API integrations, serving 2,000+ concurrent users.",
+      "Built REST APIs and frontend-backend data flows, reducing data fetch latency by 30%.",
+      "Refactored code into reusable, modular components, decreasing code duplication by 40%.",
+      "Resolved 40+ issues and shipped 20+ features on schedule in an Agile, cross-functional team.",
     ],
     tech: ["MERN Stack", "Next.js", "TypeScript", "REST APIs", "Tailwind CSS", "Authentication", "Agile"],
   },
@@ -51,6 +48,34 @@ const ExperienceTimeline = () => {
         <p className="section-subtitle">
           Over 2 years of hands-on production experience building, architecting, and optimizing enterprise applications.
         </p>
+
+        {/* Immediately Available Banner */}
+        <div
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "10px",
+            background: "rgba(16, 185, 129, 0.12)",
+            border: "1px solid rgba(16, 185, 129, 0.35)",
+            padding: "8px 20px",
+            borderRadius: "30px",
+            color: "#10b981",
+            fontSize: "0.92rem",
+            fontWeight: 600,
+            marginTop: "16px",
+          }}
+        >
+          <span
+            style={{
+              width: "10px",
+              height: "10px",
+              borderRadius: "50%",
+              background: "#10b981",
+              boxShadow: "0 0 10px #10b981",
+            }}
+          />
+          Immediately Available for Hire (Oct 2026 – Present) • Notice: 0 Days
+        </div>
       </div>
 
       <div className="timeline-container">

@@ -9,7 +9,7 @@
 A modern, high-performance developer portfolio showcasing production web applications, full-stack architectures, real-time systems, and generative AI platforms engineered by **Sourabh Bhakar**.
 
 🌐 **Live Demo:** [https://sourabh-bhakar.vercel.app](https://sourabh-bhakar.vercel.app)  
-📄 **Latest Resume:** [Download PDF](https://sourabh-bhakar.vercel.app/sourabh-bhakar.pdf)
+📄 **Latest Resume:** [Download PDF](https://sourabh-bhakar.vercel.app/sourabh-bhakar-updated.pdf)
 
 ---
 

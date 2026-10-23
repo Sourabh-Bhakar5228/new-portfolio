@@ -128,7 +128,7 @@ const Hero = () => {
             </button>
 
             <a
-              href="/sourabh-bhakar.pdf"
+              href="/sourabh-bhakar-updated.pdf"
               download="Sourabh_Bhakar_Resume.pdf"
               className="btn-neon-secondary"
             >
